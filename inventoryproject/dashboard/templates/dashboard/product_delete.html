@@ -1,0 +1,29 @@
+{% extends 'partials/base.html' %}
+
+{% block title %}Deleting the product "{{ item.name }}"{% endblock %}
+
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <div class="border bg-white p-3">
+        <h3>Delete Item?</h3>
+        <hr>
+        <div class="alert alert-danger">
+          <h5>Are You sure you want to delete?</h5>
+          <a href="{% url 'dashboard-product' %}">Cancel</a>
+        </div>
+        <form method="POST">
+          {% csrf_token %}
+          <button
+            type="text"
+            class="btn btn-danger"
+            type="submit"
+          >Delete</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

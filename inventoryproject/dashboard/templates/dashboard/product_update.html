@@ -1,0 +1,27 @@
+{% extends 'partials/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Updating the product "{{ item.name }}"{% endblock %}
+
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <div class="border bg-white p-3">
+        <h3>Update Item?</h3>
+        <hr>
+        <form method="POST">
+          {% csrf_token %}
+          {{ form|crispy }}
+          <button
+            type="text"
+            class="btn btn-info"
+            type="submit"
+          >Update</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
